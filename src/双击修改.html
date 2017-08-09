@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>双击修改</p>
+<input type="text" style="display:none">
+</body>
+</html>
+<script>
+    var oP=document.querySelector("p");
+    var input=document.querySelector("input")
+    oP.ondblclick=function () {
+        var that=this;
+        that.style.display="none"
+        input.style.display="block";
+
+        input.focus()
+
+        input.onblur=function () {
+
+
+            that.style.display="block"
+            input.style.display="none";
+
+            if(!input.value) return;
+            that.innerHTML=input.value
+        }
+    }
+</script>
